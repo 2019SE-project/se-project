@@ -4,7 +4,7 @@ Computer data storage, often called storage or memory, is a technology consistin
 ### Vendors
 There's no shortage of vendors catering to the data storage needs of enterprises.
 
-![data storage vendors]()
+![data storage vendors](https://github.com/2019SE-project/se-project/blob/master/hw1/big-data-vendors.jpg)
 #### Data Center Storage Companies
 These data storage companies are market leaders and wield big influence. They're the go-to companies for businesses that are looking to deploy storage area network (SAN) or network-attached storage (NAS) technologies, and increasingly, hybrid cloud storage solution.
 
@@ -293,4 +293,4 @@ For example, Adding more layers of cache may reduce the misses of read and write
 
 ## Reference
 [20 Top Enterprise Data Storage Vendors](https://www.enterprisestorageforum.com/products/20-top-enterprise-data-storage-vendors.html)  
-[A Performance Measurement Framework of Cloud Storage Services]()
+[A Performance Measurement Framework of Cloud Storage Services](https://github.com/2019SE-project/se-project/blob/master/hw1/64230-102267-2-PB.pdf)
