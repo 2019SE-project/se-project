@@ -4,7 +4,7 @@ Alternately referred to as a processor, central processor, or microprocessor, th
 
 The picture below is an example of what the top and bottom of an Intel Pentium processor may look. The processor is placed and secured into a compatible CPU socket found on the motherboard. Processors produce heat, so they are covered with a heat sink to keep them cool and running smoothly.
 
-![image2](cpu-image\cpu01.jpg)
+![image2](/hw1/cpu-image/cpu01.jpg)
 
 As seen in the picture above, the CPU chip is usually square with one notched corner to help make sure it's properly inserted into the CPU socket. On the bottom of the chip are hundreds of connector pins that plug into each of the corresponding holes in the socket. Today, most CPU's resemble the picture shown above. However, Intel and AMD have also experimented with slot processors that were much larger and slid into a slot on the motherboard. Also, over the years, there have been dozens of different types of sockets on motherboards. Each socket only supports specific types of processors and each has its own pin layout.
 
@@ -13,7 +13,7 @@ In the CPU, there are two primary components.
 1. ALU (arithmetic logic unit) - performs mathematical, logical, and decision operations.
 2. CU (control unit) - directs all the processors operations.
 
-![image2](cpu-image\cpu02.jpg)
+![image2](/hw1/cpu-image/cpu02.jpg)
 
 ## Vendors
 
@@ -137,7 +137,7 @@ Memory cache is a portion of the high-speed SRAM (static random access memory) a
 > 
 > L3 cache is cache memory located on the die of the CPU. The picture of the Intel Core i7-3960X processor die is an example of a processor chip containing six CPU cores and shared L3 cache. The L3 cache is shared between all CPU cores. It is slower, and has greater capacity, than the L1 or L2 cache.
 > 
-> ![l3-cache](cpu-image\cpu_l3_cache.jpg)
+> ![l3-cache](/hw1/cpu-image/cpu_l3_cache.jpg)
 
 ## Technologies
 
@@ -145,7 +145,7 @@ Memory cache is a portion of the high-speed SRAM (static random access memory) a
 
 Alternatively referred to as pipline, piplining is an advanced microprocessing technique capable of handling multiple stages of different computer instructions at one time. Piplining allows for an increase in performance and the overall throughput of the processor.
 
-![pipeline](cpu-image\pipeline.jpg)
+![pipeline](/hw1/cpu-image/pipeline.jpg)
 
 ### Branch prediction
 
