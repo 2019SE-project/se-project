@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myscheduler
+  labels:
+    app: myscheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myscheduler
+  template:
+    metadata:
+      labels:
+        app: myscheduler
+    spec:
+      serviceAccount: myscheduler
+      containers:
+        - name: myscheduler
+          image: ruishaopu561/myscheduler:v1
+          imagePullPolicy: Always
