@@ -1,4 +1,4 @@
-package seproject.tinyurl;
+package seproject.tinyurl.entity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +20,7 @@ public class Encoder {
     }
 
     public String encode(long id) {
+        System.out.println(id);
         StringBuilder shortURL = new StringBuilder();
         while (id > 0) {
             int r = (int) (id % 62);
