@@ -1,5 +1,5 @@
 ## EC2
-+ m5d.xlarge
++ m5.xlarge
 
 ## Requirement I
 + Prepare a CI/CD environment
