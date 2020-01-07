@@ -233,6 +233,121 @@ Dashboard 是一个 Web 图形界面，可以帮助使用者更方便地查看�
 
 ## Distributed Tiny URL App
 
+在这一环节中，我将 Tiny URL 的 Spring Boot 服务与 MySQL 服务拆分成两个独立部分，分别将它们部署到了 microk8s 上并使 Spring Boot 服务能够成功连接到 MySQL 服务，整个 Tiny URL 正常运行。
+
+首先部署 MySQL 服务。
+
+创建下面的文件
+
+`mysql-rc.yml`
+
+    # MySQL instance
+    apiVersion: app/v1
+    kind: Deployment
+    metadata:
+      name: mysqljdbc
+      labels:
+        app: mysqljdbc
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: mysqljdbc
+      template:
+      metadata:
+        labels:
+          app: mysqljdbc
+      spec:
+        containers:
+        - name: mysqljdbc
+          image: ruishaopu561/mymysql:v1
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: '123'
+
+
+`mysql-svc.yml`
+
+    # MySQL service
+    apiVersion: app/v1
+    kind: Service
+    metadata:
+      name: mysqljdbc
+    spec:
+      selector:
+        app: mysqljdbc
+      ports:
+      - port: 3306
+
+`springboot-rc.yml`
+
+    # Spring Boot instance
+    apiVersion: app/v1
+    kind: Deployment
+    metadata:
+      name: springboot-demo
+      labels:
+        app: springboot-demo
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: springboot-demo
+      template:
+        metadata:
+          labels:
+            app: springboot-demo
+      spec:
+        containers:
+        - name: springboot-demo
+          image: ruishaopu561/seproject:v1 //our tinyurl image
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MYSQL_SERVICE_HOST
+          value: 'mysqljdbc'
+        - name: MYSQL_SERVICE_PORT
+          value: '3306'
+        - name: MYSQL_ROOT_PASSWORD
+          value: '123'
+        ports:
+        - containerPort: 8080
+
+`springboot-svc.yml`
+
+    # Spring Boot service
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: springboot-demo
+    spec:
+      type: NodePort
+        ports:
+        - name: springboot-svc
+          port: 8080
+          nodePort: 30000
+        selector:
+          app: springboot-demo
+
+部署
+
+    microk8s.kubectl create -f mysql-rc.yml
+    microk8s.kubectl create -f mysql-svc.yml
+    microk8s.kubectl create -f springboot-rc.yml
+    microk8s.kubectl create -f springboot-svc.yml
+
+然后获取 Spring Boot service 对应的 IP 地址
+
+    microk8s.kubectl describe sevices springboot-demo
+
+最后 `curl` 对应的地址和端口成功。
+
+
+
+
+
 ## Load Balance
 
 ## Autoscaling
