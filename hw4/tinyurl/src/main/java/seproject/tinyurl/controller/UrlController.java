@@ -14,6 +14,11 @@ public class UrlController {
     @Autowired
     UrlRepository ur;
 
+    @GetMapping(value = "/")
+    public String hello() {
+        return "Hello, World!";
+    }
+
     @GetMapping(value = "/{tinyurl}")
     public String getLongUrl(@PathParam("url") String url) {
         System.out.println("tinyurl: ");
