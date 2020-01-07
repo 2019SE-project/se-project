@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-demo
+  labels:
+    app: springboot-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-demo
+  template:
+    metadata:
+      labels:
+        app: springboot-demo
+    spec:
+      containers:    
+      - name: springboot-demo
+        image: ruishaopu561/seproject:v3
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MYSQL_SERVICE_HOST
+          value: 'mysqljdbc'
+        - name: MYSQL_SERVICE_PORT
+          value: '3306'
+        - name: MYSQL_ROOT_PASSWORD
+          value: '123'
+        ports:
+        - containerPort: 8080
