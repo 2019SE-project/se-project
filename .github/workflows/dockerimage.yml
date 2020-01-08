@@ -17,4 +17,4 @@ jobs:
          cd ../
          cp tinyurl/target/tinyurl-0.0.1-SNAPSHOT.jar .
          docker build -t ruishaopu561/seproject:v1 -f tinyurl.dockerfile .
-         docker push ruishaopu561/seproject:v1
+         echo "docker build successfully!"
