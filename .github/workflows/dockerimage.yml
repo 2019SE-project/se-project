@@ -13,5 +13,5 @@ jobs:
     - name: Build the Docker image
       run: |
          cd hw4
-        docker build -f tinyurl.dockerfile --tag ruishaopu561/seproject:$(date +%s) .
-        docker push ruishaopu561/seproject:$(date +%s)
+         docker build -t ruishaopu561/seproject:v1 -f tinyurl.dockerfile .
+         docker push ruishaopu561/seproject:v1
