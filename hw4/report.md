@@ -342,7 +342,15 @@ Dashboard 是一个 Web 图形界面，可以帮助使用者更方便地查看�
 
     microk8s.kubectl describe sevices springboot-demo
 
-最后 `curl` 对应的地址和端口成功。
+在输出的信息中找到 NodePort 对应的一项，microk8s 把 Spring Boot 服务暴露在了物理机的这个端口上。
+
+使用 Postman 测试成功。
+
+![helloworld](./images/Helloworld.png)
+
+![postlongurl](./images/longurl.png)
+
+![gettinyurl](./images/tinyurl.png)
 
 
 
