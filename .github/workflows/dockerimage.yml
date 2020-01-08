@@ -12,7 +12,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: |
-         cd hw4
+         cd hw4/tinyurl
+         mvn package -DskipTests
+         cd ../
          cp tinyurl/target/tinyurl-0.0.1-SNAPSHOT.jar .
          docker build -t ruishaopu561/seproject:v1 -f tinyurl.dockerfile .
          docker push ruishaopu561/seproject:v1
